@@ -3,18 +3,31 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import Botao from './botao/index'
 
+// fazer um input que seta um estado
+// fazer um botão q pega o estado do input e mostra na tela
+
 export default function App() {
-  const [text, setText] = useState('Hello World')
+  const [texto, setTexto] = useState('')
+  const [textoTela, setTextoTela] =useState('')
+  
   return (
-    <View style={styles.container}>  
-      <View style={{backgroundColor:'#a5c'}}>
-        <Text>{text}</Text>
-      </View>    
-      <Botao label={text} setLabel={setText}></Botao>
-      <Text>Open up App.js to start working on your app! 
-        <Text style={{color:'blue', fontSize:20, fontWeight:'bold'}}>Outro Texto</Text>
-      </Text>
-      <StatusBar style="auto" />
+    <View style={styles.container}>
+      <TextInput 
+        onChangeText={(event) => setTexto(event)}
+        style={{borderWidth:1, width: 100, paddingHorizontal:4}}
+      />
+      
+      
+      <TouchableOpacity
+        onPress={()=> setTextoTela(texto)}
+        style={{borderWidth:1, width: 100, paddingHorizontal:4, textAlign:'center', marginTop:4}}
+      >
+        <Text>Botão</Text>
+      </TouchableOpacity>
+
+      <Text>{textoTela}</Text>
+    
+    <StatusBar style="auto" />
     </View>
   );
 }
@@ -30,3 +43,12 @@ const styles = StyleSheet.create({
     color: 'blue',
   }
 });
+
+
+/*
+
+
+
+
+
+*/

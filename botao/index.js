@@ -17,7 +17,7 @@ const Botao = ({label, setLabel}) => {
       alignItems: 'center',
       marginTop:8,
     }}
-    onPress={()=>setLabel('Hello World')}
+    onPress={()=>setLabel(oldState => oldState + 'Lucas')}
     >
       <Text style={{color:'#fff'}}>{label}</Text>
     </TouchableOpacity>
